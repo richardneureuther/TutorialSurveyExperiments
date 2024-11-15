@@ -19,6 +19,9 @@ class DemoPage1(Page):
     form_model = Player
     form_fields = ['study_field_question']
 
+class DemoPage2(Page):
+    form_model = Player
+
 
 class EndPage(Page):
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
