@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<br>
+<h2> First Survey Richard Neureuther  </h2>
+    <hr>
+    Please enter your field of study below. 
+
+    <!-- This is the most basic way of implementing an input field -->
+    {{ formfield "study_field_question"}}
+
+   <button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Next
+</button>
+
+{% endblock %}

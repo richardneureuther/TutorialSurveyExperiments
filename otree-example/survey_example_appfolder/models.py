@@ -9,8 +9,8 @@ from otree.api import (
     currency_range,
 )
 
-author = 'your names and team objective go here'
-doc = 'Your app description goes here'
+author = 'Richard Neureuther'
+doc = 'Test survey for the Tutorial'
 
 class Constants(BaseConstants):
     name_in_url = 'survey-example'
@@ -27,7 +27,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
-    
 #The Variables are structured on the base of pages
-    entry_question = models.StringField()
-    age_question = models.IntegerField()                          
+    name_question = models.StringField()
+    age_question = models.IntegerField()
+    study_field_question = models.StringField()
+                              

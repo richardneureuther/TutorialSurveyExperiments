@@ -9,11 +9,16 @@ from .models import Constants, Player
 
 class Welcome(Page):
     form_model = Player
-    form_fields = ['entry_question']
+    form_fields = ['name_question']
 
-class DemoPage(Page):
+class DemoPage0(Page):
     form_model = Player
     form_fields = ['age_question']
+
+class DemoPage1(Page):
+    form_model = Player
+    form_fields = ['study_field_question']
+
 
 class EndPage(Page):
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
@@ -21,5 +26,6 @@ class EndPage(Page):
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
-                DemoPage,           
+                DemoPage0,
+                DemoPage1,           
                 EndPage]
