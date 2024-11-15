@@ -29,6 +29,7 @@ class Player(BasePlayer):
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
 #The Variables are structured on the base of pages
     name_question = models.StringField()
-    age_question = models.IntegerField()
+    age_question = models.IntegerField(label="Please enter your age here...", max= 120, min=1)
     study_field_question = models.StringField()
+    satisfaction = models.IntegerField(initial=-999)
                               
