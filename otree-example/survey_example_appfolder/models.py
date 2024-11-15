@@ -28,8 +28,9 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
 #The Variables are structured on the base of pages
-    name_question = models.StringField()
-    age_question = models.IntegerField(label="Please enter your age here...", max= 120, min=1)
-    study_field_question = models.StringField()
-    satisfaction = models.IntegerField(initial=-999)
+    name_question = models.StringField(label="Please enter your name here:")
+    age_question = models.IntegerField(label="Please enter your age here:", max= 120, min=1)
+    study_field_question = models.StringField(label="Please enter your field of study here:")
+    satisfaction = models.IntegerField(initial=-999, label="Please select the value that is most fitting:")
+    additional_comments = models.StringField(label="Is there anything else you want to add?")
                               
