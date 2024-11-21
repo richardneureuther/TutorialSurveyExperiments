@@ -69,6 +69,6 @@ class Player(BasePlayer):
         #1) be in the class Player (important to indent the right way)
         #2) have a specific name "variablename"_error_message
     def age_question_error_message(player, value):
-        if value > 50:
-            return 'You are too old. Are you sure you are taking this course?'
+        if value > 50 or value < 18:
+            return 'You are either too old or too young. Are you sure you are taking this course?'
                         
