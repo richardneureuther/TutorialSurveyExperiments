@@ -27,6 +27,13 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
+
+    #Welcome
+    device_type = models.IntegerField()
+    operating_system = models.IntegerField()
+    screen_height = models.IntegerField(initial=-999)
+    screen_width = models.IntegerField(initial=-999)
+    entry_question = models.StringField(blank = True)
 #The Variables are structured on the base of pages
     name_question = models.StringField(label="Please enter your name here:")
     age_question = models.IntegerField(label="Please enter your age here:", max= 120, min=1)
