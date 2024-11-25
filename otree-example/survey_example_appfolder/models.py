@@ -40,4 +40,6 @@ class Player(BasePlayer):
     study_field_question = models.StringField(label="Please enter your field of study here:")
     satisfaction = models.IntegerField(initial=-999, label="Please select the value that is most fitting:")
     additional_comments = models.StringField(label="Is there anything else you want to add?")
+    windows_interface = models.IntegerField(initial=-999, label="Please select the value that is most fitting:")
+    iOS_interface = models.IntegerField(initial=-999, label="Please select the value that is most fitting:")
                               

@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<br>
+<h1>  Survey  for assignment3</h1>
+    <hr>
+    <!-- Field for the name -->
+     <!--code for adding the image, make sure the image is stored at the right place-->
+    <img   width="50%" height="50%" src="{% static 'images/IOS_10_phone..png' %}" />
+    <br>
+   <button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Next
+
+    
+<p><b>This is an iPhone (iOS) produced by Apple. Just by looking at this picture, please rank, on a scale from 1 (not at all) to 5 (very), how intuitive you find the design of the UI (User Interface).</b></p>
+<input type="radio" name="iOS_interface" value="1" /> 1
+<br>
+<input type="radio" name="iOS_interface" value="2" /> 2
+<br>
+<input type="radio" name="iOS_interface" value="3" /> 3
+<br>
+<input type="radio" name="iOS_interface" value="4" /> 4
+<br>
+<input type="radio" name="iOS_interface" value="5" /> 5
+<br>
+<br>
+
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Next
+</button>
+</button>
+
+{% endblock %}

@@ -24,9 +24,13 @@ class DemoPage3(Page):
     form_model = Player
     form_fields = ["additional_comments"]
 
-class DemoPage4(Page):
+class DemoPage4_group1(Page):
     form_model = Player
-    
+    form_fields = ["windows_interface"]
+
+class DemoPage4_group2(Page):
+    form_model = Player 
+    form_fields = ["iOS_interface"]
 
 
 class EndPage(Page):
@@ -34,9 +38,6 @@ class EndPage(Page):
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
-                DemoPage0,
-                DemoPage1,  
-                DemoPage2,  
-                DemoPage3,
-                DemoPage4,        
+                DemoPage4_group1,
+                DemoPage4_group2,        
                 EndPage]
