@@ -4,7 +4,22 @@
 
 {% block title %}
 {% endblock %}
+{% block scripts %}
+<script>
 
+    var group_assignment ={ group_assignment };
+    var div_group0 = document.getElementById('group0');
+    var div_group1 = document.getElementById('group1');
+
+    if (group_assignment == 0) {
+        div_group0.style.display = "block";
+    }
+    if (group_assignment == 1) {
+        div_group1.style.display = "block";
+    }
+</script>
+
+{% endblock %}
 {% block content %}
 <br>
 <h2>First Survey Richard Neureuther </h2>
@@ -27,5 +42,14 @@
     <br>
     <br>
     **Checklist for assignment03:**
+    <br>
+    Two different images (question for the image + randomly assigned)
+    <br>
+    Popout question
+    <br>
+    Recorded screen size and a timestamps
+    <br>
+
+
 
 {% endblock %}

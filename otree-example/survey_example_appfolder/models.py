@@ -43,6 +43,7 @@ class Player(BasePlayer):
     satisfaction = models.IntegerField(initial=-999, label="Please select the value that is most fitting:")
 
     additional_comments = models.StringField(label="Is there anything else you want to add?")
+    time_additional_comments = models.StringField(initial='-999')
 
     windows_interface = models.IntegerField(initial=-999, label="Please select the value that is most fitting:")
 

@@ -23,7 +23,7 @@ class DemoPage2(Page):
 
 class DemoPage3(Page):
     form_model = Player
-    form_fields = ["additional_comments"]
+    form_fields = ["additional_comments","time_additional_comments"]
 
 class DemoPage4_group1(Page):
     def is_displayed(self):
@@ -43,10 +43,19 @@ class PopupQuestion(Page):
     form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout']
 
 class EndPage(Page):
+
+    def vars_for_template(self):
+        '''this is another function by otree which allows you to "send" variables
+        to html files if you need to access them from there'''
+        return {"group_assignment": safe_json(self.player.group_assignment)}
     form_model = Player
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
+                DemoPage0,
+                DemoPage1,
+                DemoPage2,
+                DemoPage3,
                 DemoPage4_group1,
                 DemoPage4_group2, 
                 PopupQuestion,       
