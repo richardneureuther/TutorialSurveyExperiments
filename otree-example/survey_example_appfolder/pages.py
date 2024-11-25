@@ -26,10 +26,15 @@ class DemoPage3(Page):
     form_fields = ["additional_comments"]
 
 class DemoPage4_group1(Page):
+    def is_displayed(self):
+        return self.player.group_assignment == 1
     form_model = Player
     form_fields = ["windows_interface"]
 
+
 class DemoPage4_group2(Page):
+    def is_displayed(self):
+        return self.player.group_assignment == 1
     form_model = Player 
     form_fields = ["iOS_interface"]
 
