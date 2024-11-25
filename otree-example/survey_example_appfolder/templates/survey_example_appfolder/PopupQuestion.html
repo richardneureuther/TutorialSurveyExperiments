@@ -1,0 +1,67 @@
+{% extends "global/GlobalPopup.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+    //Get variables needed for our popout
+    var UniYes = document.getElementById('UniYes');
+    var divYes = document.getElementById('divYes');
+    var UniNo = document.getElementById('UniNo');
+    var divNo = document.getElementById('divNo');
+
+    // POPOUT: we are going to create a popout function that displays text only if some value is given in another question
+    function popout() {
+        console.log('searching for the elements')
+        //the conditions and the implementation of showing the text
+        if (UniYes.checked == true) {
+            console.log('yes');
+            divNo.style.display = "none";
+            divYes.style.display = "block";
+        }
+        if (UniNo.checked == true) {
+            console.log('no');
+            divYes.style.display = "none";
+            divNo.style.display = "block";
+        }
+    }
+</script>
+{% endblock %}
+
+
+
+{% block content %}
+<!-- add time taking variable   -->
+<input id="time_popout" type="hidden" name="time_popout" />
+<br>
+<h2> Survey Example </h2>
+
+<div>
+    <p><b>Do you study at the University of Constance ?</b></p>
+    <div><input id="UniYes" type="radio" name="popout_question" value="1" onclick="popout()" /> Yes</div>
+    <div><input id="UniNo" type="radio" name="popout_question" value="2" onclick="popout()" /> No</div>
+    <br>
+</div>
+
+<!-- Question if they study at the uni  -->
+<div id="divYes" style="display: none">
+    <p>Who is your favorite professor?</p>
+    <input type="text" name="popout_yes" />
+    <br>
+</div>
+
+<!--  Question if they dont't study at the uni  -->
+<div id="divNo" style="display: none">
+    <p>Where do you study?</p>
+    <input type="text" name="popout_no" />
+    <br>
+</div>
+
+<br>
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Next
+</button>
+
+{% endblock %}

@@ -42,6 +42,13 @@ class Player(BasePlayer):
 
     iOS_interface = models.IntegerField(initial=-999, label="Please select the value that is most fitting:")
 
+    #varibles for recording of screen width/height
     screen_height = models.IntegerField(initial=-999)
     screen_width = models.IntegerField(initial=-999)
+
+    #Variables for  the popup questions
+    popout_question = models.IntegerField(blank=True)
+    popout_yes = models.StringField(blank=True)
+    popout_no = models.StringField(blank=True)
+    time_popout = models.StringField(initial='-999')
                               

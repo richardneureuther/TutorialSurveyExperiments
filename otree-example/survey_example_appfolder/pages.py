@@ -33,6 +33,9 @@ class DemoPage4_group2(Page):
     form_model = Player 
     form_fields = ["iOS_interface"]
 
+class PopupQuestion(Page):
+    form_model = Player
+    form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout']
 
 class EndPage(Page):
     form_model = Player
@@ -40,5 +43,6 @@ class EndPage(Page):
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
                 DemoPage4_group1,
-                DemoPage4_group2,        
+                DemoPage4_group2, 
+                PopupQuestion,       
                 EndPage]
