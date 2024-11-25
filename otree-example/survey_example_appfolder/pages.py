@@ -5,6 +5,7 @@ from .models import Constants, Player
 
 class Welcome(Page):
     form_model = Player
+    form_fields = [ 'screen_height', 'screen_width']
    
    
 
