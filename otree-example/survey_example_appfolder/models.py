@@ -9,6 +9,7 @@ from otree.api import (
     currency_range,
 )
 
+#import random for group assignment
 import random 
 
 author = 'Richard Neureuther'
@@ -20,8 +21,10 @@ class Constants(BaseConstants):
     num_rounds = 1
 
 class Subsession(BaseSubsession):
-    pass
-
+     def creating_session(self):
+        for p in self.get_players():
+            p.group_assignment = random.Random().randint(0, 1)
+            
 class Group(BaseGroup):
     #we will only come to the group class when we look at advanced methods
     pass
