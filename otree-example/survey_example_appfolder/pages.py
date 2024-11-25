@@ -5,7 +5,7 @@ from .models import Constants, Player
 
 class Welcome(Page):
     form_model = Player
-    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'entry_question']
+   
    
 
 class DemoPage0(Page):
@@ -24,6 +24,10 @@ class DemoPage3(Page):
     form_model = Player
     form_fields = ["additional_comments"]
 
+class DemoPage4(Page):
+    form_model = Player
+    
+
 
 class EndPage(Page):
     form_model = Player
@@ -33,5 +37,6 @@ page_sequence = [Welcome,
                 DemoPage0,
                 DemoPage1,  
                 DemoPage2,  
-                DemoPage3,        
+                DemoPage3,
+                DemoPage4,        
                 EndPage]
