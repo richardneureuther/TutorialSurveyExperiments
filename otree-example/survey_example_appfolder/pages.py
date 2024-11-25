@@ -27,7 +27,7 @@ class DemoPage3(Page):
 
 class DemoPage4_group1(Page):
     def is_displayed(self):
-        return self.player.group_assignment == 1
+        return self.player.group_assignment == 0
     form_model = Player
     form_fields = ["windows_interface"]
 

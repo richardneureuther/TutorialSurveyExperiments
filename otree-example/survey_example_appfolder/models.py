@@ -31,6 +31,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    group_assignment = models.IntegerField(initial=-1)
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
 #The Variables are structured on the base of pages
     name_question = models.StringField(label="Please enter your name here:")
