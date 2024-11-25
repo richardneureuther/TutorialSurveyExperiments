@@ -9,6 +9,8 @@ from otree.api import (
     currency_range,
 )
 
+import random 
+
 author = 'Richard Neureuther'
 doc = 'Test survey for the Tutorial'
 
