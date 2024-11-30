@@ -1,15 +1,16 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+#from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import random
 import string
 
-
+# this is the session wide link
+link = 'http://localhost:8000/join/bofohadi'
 
 def build_driver():
     # Set up the driver
-    return webdriver.Chrome(ChromeDriverManager().install())
+    return webdriver.Chrome() #(ChromeDriverManager().install())
 
 
 def check_exists_by_xpath(driver, xpath):
@@ -91,6 +92,6 @@ def run_bots(no_times, link):
         Merkel_baker(driver)
         end_of_survey(driver)
     print("Success!")
-# this is the session wide link
-link = 'http://localhost:8000/join/sedukeha'
+
+
 run_bots(no_times=20, link=link)
