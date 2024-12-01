@@ -14,16 +14,31 @@
 be the same as on models.py and the value is what will be displayed in your dataset
 if the option is clicked -->
 
-<p><b>Please rank your satisfaction with your study program form 1(not happy at all) to 5 (very satisfied).</b></p>
-<input type="radio" name="satisfaction" value="1" /> 1
-<br>
-<input type="radio" name="satisfaction" value="2" /> 2
-<br>
-<input type="radio" name="satisfaction" value="3" /> 3
-<br>
-<input type="radio" name="satisfaction" value="4" /> 4
-<br>
-<input type="radio" name="satisfaction" value="5" /> 5
+<p><b>Please rank your satisfaction with your study program.</b></p>
+<table style="border-collapse: collapse; text-align: center; width: 60%; table-layout: fixed;">
+    <thead>
+        <tr>
+            <th style="width: 20%;"></th>
+            <th style="padding: 10px; font-size: 16px;">1</th>
+            <th style="padding: 10px; font-size: 16px;">2</th>
+            <th style="padding: 10px; font-size: 16px;">3</th>
+            <th style="padding: 10px; font-size: 16px;">4</th>
+            <th style="padding: 10px; font-size: 16px;">5</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: right;">Very Dissatisfied</td>
+            <td><input type="radio" name="satisfaction" value="1" /></td>
+            <td><input type="radio" name="satisfaction" value="2" /></td>
+            <td><input type="radio" name="satisfaction" value="3" /></td>
+            <td><input type="radio" name="satisfaction" value="4" /></td>
+            <td><input type="radio" name="satisfaction" value="5" /></td>
+            <td style="text-align: left;">Very Satisfied</td>
+        </tr>
+    </tbody>
+</table>
+
 <br>
 <br>
 
