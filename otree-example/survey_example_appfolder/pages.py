@@ -11,7 +11,7 @@ class Welcome(Page):
 
 class DemoPage0(Page):
     form_model = Player
-    form_fields = ['age_question', 'name_question']
+    form_fields = ['age_question', 'name_question', "gender_question"]
 
 class DemoPage1(Page):
     form_model = Player

@@ -37,7 +37,7 @@ class Player(BasePlayer):
     name_question = models.StringField(label="Please enter your name here:")
 
     age_question = models.IntegerField(label="Please enter your age here:", max= 120, min=1)
-    
+    gender_question = models.IntegerField(initial=-999, label="What gender do you identify with?")
     study_field_question = models.StringField(label="Please enter your field of study here:")
 
     satisfaction = models.IntegerField(initial=-999, label="Please select the value that is most fitting:")
