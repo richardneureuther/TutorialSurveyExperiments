@@ -13,22 +13,37 @@
      <!--code for adding the image, make sure the image is stored at the right place-->
     <img   width="50%" height="50%" src="{% static 'images/windows_phone.png' %}" />
     <br>
+    <br>
+    <br>
 
 
-    
+
 <p><b>This is a windows phone (Windows OS 8.1) produced by Nokia. Just by looking at this picture, please rank, on a scale from 1 (not at all) to 5 (very), how intuitive you find the design of the UI (User Interface).</b></p>
-<input type="radio" name="windows_interface" value="1" /> 1
+<table style="border-collapse: collapse; text-align: center; width: 60%; table-layout: fixed;">
+    <thead>
+        <tr>
+            <th style="width: 20%;"></th>
+            <th style="padding: 10px; font-size: 16px;">1</th>
+            <th style="padding: 10px; font-size: 16px;">2</th>
+            <th style="padding: 10px; font-size: 16px;">3</th>
+            <th style="padding: 10px; font-size: 16px;">4</th>
+            <th style="padding: 10px; font-size: 16px;">5</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: right;">Not Intuitive</td>
+            <td><input type="radio" name="windows_interface" value="1" /></td>
+            <td><input type="radio" name="windows_interface" value="2" /></td>
+            <td><input type="radio" name="windows_interface" value="3" /></td>
+            <td><input type="radio" name="windows_interface" value="4" /></td>
+            <td><input type="radio" name="windows_interface" value="5" /></td>
+            <td style="text-align: left;">Very Intuitive</td>
+        </tr>
+    </tbody>
+</table>
 <br>
-<input type="radio" name="windows_interface" value="2" /> 2
 <br>
-<input type="radio" name="windows_interface" value="3" /> 3
-<br>
-<input type="radio" name="windows_interface" value="4" /> 4
-<br>
-<input type="radio" name="windows_interface" value="5" /> 5
-<br>
-<br>
-
 <button class="otree-btn-next btn btn-primary next-button otree-next-button">
     Next
 </button>
