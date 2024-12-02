@@ -13,6 +13,20 @@ class DemoPage0(Page):
     form_model = Player
     form_fields = ['age_question', 'name_question', "gender_question"]
 
+    def before_next_page(self):
+        # Track the gender counts after a player answers the gender question
+        selected_gender = self.player.gender_question
+
+        # Increment the count for the selected gender
+        if selected_gender in Constants.gender_quotas:
+            Constants.gender_quotas[selected_gender] += 1
+
+        # Check if the quota for the selected gender has been reached
+        if Constants.gender_quotas[selected_gender] > 2:
+            self.player.gender_quota_full = True
+            # Redirect the participant to the quota full page
+            print("this bullshit works")
+
 class DemoPage1(Page):
     form_model = Player
     form_fields = ['study_field_question']

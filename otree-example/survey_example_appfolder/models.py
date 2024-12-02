@@ -19,6 +19,8 @@ class Constants(BaseConstants):
     name_in_url = 'survey-example'
     players_per_group = None
     num_rounds = 1
+    #define dict for different gender quotas 
+    gender_quotas = {1: 0, 2: 0, 3: 0, 4: 0} 
 
 class Subsession(BaseSubsession):
      def creating_session(self):
@@ -37,7 +39,11 @@ class Player(BasePlayer):
     name_question = models.StringField(label="Please enter your name here:")
 
     age_question = models.IntegerField(label="Please enter your age here:", max= 120, min=1)
+
+    #define gender question and  boolean field 
     gender_question = models.IntegerField(initial=-999, label="What gender do you identify with?")
+    gender_quota_full = models.BooleanField(initial=False) 
+
     study_field_question = models.StringField(label="Please enter your field of study here:")
 
     satisfaction = models.IntegerField(initial=-999, label="Please select the value that is most fitting:")
