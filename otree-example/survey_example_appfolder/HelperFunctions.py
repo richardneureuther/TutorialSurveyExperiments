@@ -22,12 +22,9 @@ Generally when it comes to redirecting we distinguish between people who:
 We encode those three different event in three different variables (booleans) to use for redirecting
 
 '''
-
+#screenout for everyone older than 40
 def detect_screenout(self):
-    '''this function will check for characteristics a participant needs to 
-    take part in the survey, (f.e. a certain age or being eligible to vote)'''
-
-    if self.player.eligible_question == 2: # screen out anybody that is not eligible
+    if self.player.age_question > 40:
         self.player.screenout = 1
 
 def detect_quota(self):
