@@ -2,6 +2,7 @@ from otree.api import Currency as c, currency_range, safe_json
 from ._builtin import Page, WaitPage
 from .models import Constants, Player
 
+from survey_example_appfolder.HelperFunctions import detect_screenout, detect_quota
 
 class Welcome(Page):
     form_model = Player
@@ -14,22 +15,23 @@ class DemoPage0(Page):
     form_fields = ['age_question', 'name_question', "gender_question"]
 
     def before_next_page(self):
-        # Track the gender counts after a player answers the gender question
-        selected_gender = self.player.gender_question
+        #here we are increasing the counter for each player that goes past the Welcome Page
+        self.group.counter += 1
 
-        # Increment the count for the selected gender
-        if selected_gender in Constants.gender_quotas:
-            Constants.gender_quotas[selected_gender] += 1
+#we want to detect all the screenouts and the quota reached right away
+        detect_screenout(self)
+        detect_quota(self)
 
-        # Check if the quota for the selected gender has been reached
-        if Constants.gender_quotas[selected_gender] > 2:
-            self.player.gender_quota_full = True
-            # Redirect the participant to the quota full page
-            print("this bullshit works")
 
 class DemoPage1(Page):
     form_model = Player
     form_fields = ['study_field_question']
+
+    def vars_for_template(self):
+        return {'participant_label': safe_json(self.participant.label),
+                'screenout': safe_json(self.player.screenout),
+                'quota': safe_json(self.player.quota)
+                }
 
 class DemoPage2(Page):
     form_model = Player

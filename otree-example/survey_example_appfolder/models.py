@@ -28,8 +28,7 @@ class Subsession(BaseSubsession):
             p.group_assignment = random.Random().randint(0, 1)
             
 class Group(BaseGroup):
-    #we will only come to the group class when we look at advanced methods
-    pass
+   counter = models.IntegerField(initial = 0)
 
 
 class Player(BasePlayer):
@@ -69,3 +68,4 @@ class Player(BasePlayer):
     screenout = models.BooleanField(initial=0)
     quota = models.BooleanField(initial=0)
                               
+    group_assignment = models.IntegerField()
