@@ -64,4 +64,8 @@ class Player(BasePlayer):
     popout_yes = models.StringField(blank=True)
     popout_no = models.StringField(blank=True)
     time_popout = models.StringField(initial='-999')
+
+    #screenout variables
+    screenout = models.BooleanField(initial=0)
+    quota = models.BooleanField(initial=0)
                               
