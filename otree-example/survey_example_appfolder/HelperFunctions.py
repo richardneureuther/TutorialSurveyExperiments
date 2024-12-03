@@ -27,15 +27,17 @@ def detect_screenout(self):
     if self.player.age_question > 40:
         self.player.screenout = 1
 
+#screenout if quota is already full 
 def detect_quota(self):
-    '''this function will check if a quota is already filled'''
-    participant_number = self.group.counter
-    #declare quota reached if we have more than 1 participant that started
-    if participant_number > 1:
-        self.player.quota = 1
-    return None
+    #acces gender quotas dict
+    gender_quotas = self.session.vars['gender_quotas']
 
-# def participant_count(self):
-#     '''if we want to count different things we might also implement a function here.
-#     For now we are just using the counter we implemented before'''
-#     return None
+    #store the selected gender 
+    selected_gender = self.player.gender_question
+
+    #if quota is full set boolean quota to 1
+    if gender_quotas[selected_gender] >= 1:
+        self.player.quota = 1  
+    #if quota is not full increase the counter in the dict by the gender selected 
+    else:
+        gender_quotas[selected_gender] += 1

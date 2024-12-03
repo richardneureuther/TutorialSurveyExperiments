@@ -20,10 +20,12 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     #define dict for different gender quotas 
-    gender_quotas = {1: 0, 2: 0, 3: 0, 4: 0} 
+    
 
 class Subsession(BaseSubsession):
      def creating_session(self):
+        if 'gender_quotas' not in self.session.vars:
+            self.session.vars['gender_quotas'] = {1: 0, 2: 0, 3: 0, 4: 0}
         for p in self.get_players():
             p.group_assignment = random.Random().randint(0, 1)
             
