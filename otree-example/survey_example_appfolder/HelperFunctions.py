@@ -8,20 +8,6 @@ def random_number(x, y):
     number = rng.randint(x, y)
     return number
 
-
-
-'''
-we also want to implement some functions to help with the quota checking and 
-to have an overwview (counting) who is taking part in our survey.
-
-Generally when it comes to redirecting we distinguish between people who: 
-1. took part in the whole survey (and get redirected as success to the provider)
-2. people who get screened-out (meaning they did not fulfill a characteristic one agreed upon previously)
-3. people who get redirected because the quota is already full
-
-We encode those three different event in three different variables (booleans) to use for redirecting
-
-'''
 #screenout for everyone older than 40
 def detect_screenout(self):
     if self.player.age_question > 40:
