@@ -42,6 +42,7 @@ def demopage_0(driver,run_number):
     print("passed demopage_0")
 
 
+    print("passed demopage_1")
 #handle end page 
 def end_page(driver):
     #click submit answers 
@@ -49,7 +50,7 @@ def end_page(driver):
 
 
 #link to the current session being tested 
-link = 'http://localhost:8000/join/fubivadu'
+link = 'http://localhost:8000/join/hemabuju'
 
 #method to run the bots n times over the survey 
 def run_bots(runs,link):
@@ -61,10 +62,14 @@ def run_bots(runs,link):
         welcome_page(driver)
         demopage_0(driver,i)
         end_page(driver)
+        
+
+        #print the current bot run 
+        print(f'Bot_{i} passed')
 
 
     #after completion, print success in the console
-    print("Sucess!")
+    print("Success!")
 
 #run the bots
-run_bots(runs=19, link=link)
+run_bots(runs=20, link=link)
