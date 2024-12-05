@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 import random
 import string
 
-# this is the session wide link
+# this is the session wide link # change it to the current session you want to perform bot testing with 
 link = 'http://localhost:8000/join/bofohadi'
 
 def build_driver():
@@ -37,7 +37,7 @@ def welcome_page(driver):
 
 
 def demo_page(driver):
-    xpath = "//*[@id='id_age_question']"
+    xpath = "//*[@id='id_age_question']" #inspect the button in the browser and select x path  //*[@id="form"]/div/button
     age = random.randint(1,30)
     driver.find_element(By.XPATH, xpath).send_keys(str(age))
     # gender field
