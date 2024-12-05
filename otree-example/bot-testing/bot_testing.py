@@ -10,12 +10,19 @@ def build_driver():
     # Set up the driver
     return webdriver.Chrome() #(ChromeDriverManager().install())
 
-
+def check_exists_by_xpath(driver, xpath):
+    try:
+        x = driver.find_element(By.XPATH, xpath)
+        if x.is_displayed():
+            return 1
+    except NoSuchElementException:
+        return 0
 
 #handle welcome page button 
 def welcome_page(driver):
     #click next button
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
+    print (" welcome passed")
     
 
 
@@ -39,28 +46,44 @@ def demopage_0(driver,run_number):
     driver.find_element(By.XPATH, xpath_name).send_keys(str(name_input))
 
     #test if demo is passed correctly
-    print("passed demopage_0")
+    print(" demopage_0 passed")
+    driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
 
 
-    print("passed demopage_1")
+#handle demopage_1
+def demopage_1(driver):
+    xPath_study ='/html/body/div/form/div/div/div/input'
+    input_options = ["SEDS", "PolVer", "WiWi", "Jura", 123]
+    #choose input value
+    input =  random.choice(input_options)
+    #test whether strings and integer are both accepted 
+    driver.find_element(By.XPATH, xPath_study).send_keys(input if isinstance(input, str) else str(input))
+
+    #print the input that was  passed successfully 
+    print(f" demopage_1 passed. input: {input}")
+    driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
+
+
 #handle end page 
 def end_page(driver):
     #click submit answers 
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
 
 
-#link to the current session being tested 
-link = 'http://localhost:8000/join/hemabuju'
 
 #method to run the bots n times over the survey 
 def run_bots(runs,link):
     driver = build_driver()  # initialize the driver
     for i in range(runs):
         driver.get(link)
-    
+        if check_exists_by_xpath(driver, '//*[@id="form"]/div/button') == 1:
+            x = welcome_page(driver) # check whether they are eligible
+            if x == 1:  # then they are not eligible, otherwise no next page
+                continue
         #order of pages shown
         welcome_page(driver)
         demopage_0(driver,i)
+        demopage_1(driver)
         end_page(driver)
         
 
@@ -70,6 +93,10 @@ def run_bots(runs,link):
 
     #after completion, print success in the console
     print("Success!")
+
+
+#link to the current session being tested 
+link = 'http://localhost:8000/join/kovizaki'
 
 #run the bots
 run_bots(runs=20, link=link)
