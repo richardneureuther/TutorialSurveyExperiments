@@ -63,6 +63,10 @@ def demopage_1(driver):
     print(f" demopage_1 passed. input: {input}")
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
 
+#handle demopage_2
+def demopage_2(driver):
+
+    print(" demopage_2 passed")
 
 #handle end page 
 def end_page(driver):

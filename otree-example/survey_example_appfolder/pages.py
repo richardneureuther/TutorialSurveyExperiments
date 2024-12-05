@@ -76,14 +76,16 @@ class RedirectPage(Page):
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome, 
-                DemoPage0,     
+                DemoPage0, 
+                DemoPage1, 
+                DemoPage2,   
                 EndPage,
                 RedirectPage]
 
 
 #other pages (commented out  for testing )
 #               
-#                DemoPage1,
+#                
  #               DemoPage2,
   #              DemoPage3,
    #             DemoPage4_group1,
