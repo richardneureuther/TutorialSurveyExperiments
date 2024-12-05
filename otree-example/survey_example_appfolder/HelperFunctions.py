@@ -22,7 +22,7 @@ def detect_quota(self):
     selected_gender = self.player.gender_question
 
     #if quota is full set boolean quota to 1
-    if gender_quotas[selected_gender] >= 1:
+    if gender_quotas[selected_gender] >= 3:
         self.player.quota = 1  
     #if quota is not full increase the counter in the dict by the gender selected 
     else:
