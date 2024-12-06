@@ -55,7 +55,7 @@ def demopage_0(driver,run_number):
 #handle demopage_1
 def demopage_1(driver):
     xPath_study ='/html/body/div/form/div/div/div/input'
-    input_options = ["SEDS", "PolVer", "WiWi", "Jura", 123]
+    input_options = ["SEDS", "PolVer", "WiWi", "Jura", "Soziologie", 123]
     #choose input value
     input =  random.choice(input_options)
     #test whether strings and integer are both accepted 
@@ -171,7 +171,7 @@ def run_bots(runs,link):
 
 
 #link to the current session being tested 
-link = 'http://localhost:8000/join/zanubije'
+link = 'http://localhost:8000/join/tanabusu'
 
 #run the bots
 run_bots(runs=20, link=link)
