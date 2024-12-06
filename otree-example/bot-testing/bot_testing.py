@@ -7,6 +7,7 @@ import random
 import string
 import time
 
+
 def build_driver():
     # Set up the driver
     return webdriver.Chrome() #(ChromeDriverManager().install())
@@ -83,25 +84,40 @@ def demopage_3(driver):
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
 
 #handle interface rating pages
-'''
 def demopage_4(driver):
-    xpath_interface = '//*[@id="form"]/div/table/tbody/tr/td[2]/input'
-    interface = driver.find_elements(By.XPATH, xpath_interface)
-    rand_selection = random.randint(0, 4)
-    interface[rand_selection].click()
-    driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
+    
+    #implement an auto scroller so the radio question can be proberly acces on the page 
+    def scroller(driver, element):
+        driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        time.sleep(0.3)  #short scroll timer 
+        element.click()
 
+    #extract src attribute to handle the detect the images 
+    image_element = driver.find_element(By.XPATH, '//img')
+    image_src = image_element.get_attribute('src')
+    
+    #check with image is displayed and assign the correct name 
+    if 'windows_phone.png' in image_src:
+        print("Windows Phoneis shown.")
+        name = 'windows_interface'
+    elif 'IOS_10_phone.png' in image_src:
+        print("iOS Phone is shown.")
+        name = 'iOS_interface'
+    
+    #randomly select one button in the radio question 
+    interface_options = driver.find_elements(By.NAME, name)
+    rand_selection = random.randint(0, len(interface_options) - 1)
+    scroller(driver, interface_options[rand_selection])
+
+    driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
     print(" demopage_4 passed")
-#handle end page 
-'''
+
 #handle popout questions
 def popout(driver):
-   
     yes = '//*[@id="UniYes"]'
     no = '//*[@id="UniNo"]'
     select = random.randint(0, 1)
     input_text = ''.join(random.choice(string.ascii_letters) for i in range(random.randint(1, 10)))
-    
     
     if select == 0:
         driver.find_element(By.XPATH, yes).click()
@@ -116,6 +132,7 @@ def popout(driver):
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
     print(" popout passeed")
 
+#handle end page 
 def end_page(driver):
     #click submit answers 
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
@@ -136,6 +153,7 @@ def run_bots(runs,link):
         demopage_1(driver)
         demopage_2(driver)
         demopage_3(driver)
+        demopage_4(driver)
         popout(driver)
         end_page(driver)
         
@@ -149,7 +167,7 @@ def run_bots(runs,link):
 
 
 #link to the current session being tested 
-link = 'http://localhost:8000/join/rebobazu'
+link = 'http://localhost:8000/join/zanubije'
 
 #run the bots
 run_bots(runs=20, link=link)
