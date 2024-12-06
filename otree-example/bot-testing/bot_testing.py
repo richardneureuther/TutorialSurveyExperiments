@@ -1,3 +1,4 @@
+from asyncio import wait
 from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
 #from webdriver_manager.chrome import ChromeDriverManager
@@ -79,12 +80,45 @@ def demopage_3(driver):
     input =  random.choice(input_options)
     driver.find_element(By.XPATH, xPath_additional).send_keys(input if isinstance(input, str) else str(input))
     print(f" demopage_3 passed. Input: {input}")
+    driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
 
+#handle interface rating pages
+'''
+def demopage_4(driver):
+    xpath_interface = '//*[@id="form"]/div/table/tbody/tr/td[2]/input'
+    interface = driver.find_elements(By.XPATH, xpath_interface)
+    rand_selection = random.randint(0, 4)
+    interface[rand_selection].click()
+    driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
+
+    print(" demopage_4 passed")
 #handle end page 
+'''
+#handle popout questions
+def popout(driver):
+   
+    yes = '//*[@id="UniYes"]'
+    no = '//*[@id="UniNo"]'
+    select = random.randint(0, 1)
+    input_text = ''.join(random.choice(string.ascii_letters) for i in range(random.randint(1, 10)))
+    
+    
+    if select == 0:
+        driver.find_element(By.XPATH, yes).click()
+        # how did you find out
+        driver.find_element(By.XPATH, '//*[@id="divYes"]/input').send_keys(input_text)
+    else:
+        driver.find_element(By.XPATH, no).click()
+        # do you not read the news
+        driver.find_element(By.XPATH, '//*[@id="divNo"]/input').send_keys(input_text)
+    # next button
+    
+    driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
+    print(" popout passeed")
+
 def end_page(driver):
     #click submit answers 
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
-
 
 
 #method to run the bots n times over the survey 
@@ -102,6 +136,7 @@ def run_bots(runs,link):
         demopage_1(driver)
         demopage_2(driver)
         demopage_3(driver)
+        popout(driver)
         end_page(driver)
         
 
@@ -114,7 +149,10 @@ def run_bots(runs,link):
 
 
 #link to the current session being tested 
-link = 'http://localhost:8000/join/demiholo'
+link = 'http://localhost:8000/join/rebobazu'
 
 #run the bots
 run_bots(runs=20, link=link)
+
+
+    #driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
