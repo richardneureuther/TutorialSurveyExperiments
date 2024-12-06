@@ -74,6 +74,7 @@ def demopage_2(driver):
 
     print(" demopage_2 passed")
 
+
 #handle demopage_3
 def demopage_3(driver):
     xPath_additional ='/html/body/div/form/div/div/div/input'
@@ -83,10 +84,11 @@ def demopage_3(driver):
     print(f" demopage_3 passed. Input: {input}")
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
 
+
 #handle interface rating pages
 def demopage_4(driver):
     
-    #implement an auto scroller so the radio question can be proberly acces on the page 
+    #implement a scroller so the radio question can be proberly accessed on the page 
     def scroller(driver, element):
         driver.execute_script("arguments[0].scrollIntoView(true);", element)
         time.sleep(0.3)  #short scroll timer 
@@ -96,10 +98,11 @@ def demopage_4(driver):
     image_element = driver.find_element(By.XPATH, '//img')
     image_src = image_element.get_attribute('src')
     
-    #check with image is displayed and assign the correct name 
+    #check which image is displayed and assign the correct name 
     if 'windows_phone.png' in image_src:
         print("Windows Phoneis shown.")
         name = 'windows_interface'
+
     elif 'IOS_10_phone.png' in image_src:
         print("iOS Phone is shown.")
         name = 'iOS_interface'
@@ -109,8 +112,10 @@ def demopage_4(driver):
     rand_selection = random.randint(0, len(interface_options) - 1)
     scroller(driver, interface_options[rand_selection])
 
+    #next page
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
     print(" demopage_4 passed")
+
 
 #handle popout questions
 def popout(driver):
@@ -121,16 +126,16 @@ def popout(driver):
     
     if select == 0:
         driver.find_element(By.XPATH, yes).click()
-        # how did you find out
         driver.find_element(By.XPATH, '//*[@id="divYes"]/input').send_keys(input_text)
+
     else:
         driver.find_element(By.XPATH, no).click()
-        # do you not read the news
         driver.find_element(By.XPATH, '//*[@id="divNo"]/input').send_keys(input_text)
+
     # next button
-    
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
     print(" popout passeed")
+
 
 #handle end page 
 def end_page(driver):
@@ -147,6 +152,7 @@ def run_bots(runs,link):
             x = welcome_page(driver) # check whether they are eligible
             if x == 1:  # then they are not eligible, otherwise no next page
                 continue
+
         #order of pages shown
         welcome_page(driver)
         demopage_0(driver,i)
@@ -157,10 +163,8 @@ def run_bots(runs,link):
         popout(driver)
         end_page(driver)
         
-
         #print the current bot run 
         print(f'Bot_{i} passed')
-
 
     #after completion, print success in the console
     print("Success!")
@@ -171,6 +175,3 @@ link = 'http://localhost:8000/join/zanubije'
 
 #run the bots
 run_bots(runs=20, link=link)
-
-
-    #driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
