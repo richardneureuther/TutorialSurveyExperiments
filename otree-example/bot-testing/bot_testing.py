@@ -10,7 +10,7 @@ import time
 
 def build_driver():
     # Set up the driver
-    return webdriver.Chrome() #(ChromeDriverManager().install())
+    return webdriver.Chrome() 
 
 def check_exists_by_xpath(driver, xpath):
     try:
@@ -105,7 +105,7 @@ def demopage_4(driver):
 
     elif 'IOS_10_phone.png' in image_src:
         print("iOS Phone is shown.")
-        name = 'iOS_interface'
+        name = ' iOS_interface'
     
     #randomly select one button in the radio question 
     interface_options = driver.find_elements(By.NAME, name)
