@@ -60,11 +60,15 @@ def demopage_1(driver):
     driver.find_element(By.XPATH, xPath_study).send_keys(input if isinstance(input, str) else str(input))
 
     #print the input that was  passed successfully 
-    print(f" demopage_1 passed. input: {input}")
+    print(f" demopage_1 passed. Input: {input}")
     driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
 
 #handle demopage_2
 def demopage_2(driver):
+    satisfaction = driver.find_elements(By.NAME, 'satisfaction')
+    rand_selection = random.randint(0, len(satisfaction) - 1)
+    satisfaction[rand_selection].click()
+    driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
 
     print(" demopage_2 passed")
 
@@ -88,6 +92,7 @@ def run_bots(runs,link):
         welcome_page(driver)
         demopage_0(driver,i)
         demopage_1(driver)
+        demopage_2(driver)
         end_page(driver)
         
 
@@ -100,7 +105,7 @@ def run_bots(runs,link):
 
 
 #link to the current session being tested 
-link = 'http://localhost:8000/join/kovizaki'
+link = 'http://localhost:8000/join/sejoriro'
 
 #run the bots
 run_bots(runs=20, link=link)
