@@ -1,5 +1,11 @@
 from os import environ
 
+GENDERS={
+    1: 'Male',
+    2: 'Female',
+    3: 'Divers',
+    4: 'Prefer not to say'
+}
 
 SESSION_CONFIGS = [
     dict(
@@ -7,6 +13,7 @@ SESSION_CONFIGS = [
         display_name='survey_example',
         num_demo_participants=10,
         app_sequence=['survey_example_appfolder'],
+        available_genders=GENDERS
     ),
 ]
 
@@ -17,6 +24,10 @@ SESSION_CONFIGS = [
 
 SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
+)
+
+SESSION_FIELDS = list(
+    map(lambda i: f"completed_gender_{i}", GENDERS.keys())
 )
 
 # ISO-639 code

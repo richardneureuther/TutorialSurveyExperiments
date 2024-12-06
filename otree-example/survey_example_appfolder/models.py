@@ -25,7 +25,14 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
      def creating_session(self):
         if 'gender_quotas' not in self.session.vars:
-            self.session.vars['gender_quotas'] = {1: 0, 2: 0, 3: 0, 4: 0}
+             #this for quota you wish to fill:
+            self.session.vars['gender_quotas'] = {1: 5, 2: 1, 3: 2, 4: 5}
+        # Create gender group counts
+        # this will also be displayed in the data you download
+        for gender in self.session.vars['gender_quotas'].keys():
+            if f"completed_gender_{gender}" not in self.session.vars:
+                self.session.vars[f"completed_gender_{gender}"] = 0
+
         for p in self.get_players():
             p.group_assignment = random.Random().randint(0, 1)
             
@@ -36,14 +43,15 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     group_assignment = models.IntegerField(initial=-1)
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
-#The Variables are structured on the base of pages
+    #The Variables are structured on the base of pages
     name_question = models.StringField(label="Please enter your name here:")
 
     age_question = models.IntegerField(label="Please enter your age here:", max= 120, min=1)
 
     #define gender question and  boolean field 
-    gender_question = models.IntegerField(initial=-999, label="What gender do you identify with?")
-    gender_quota_full = models.BooleanField(initial=False) 
+    gender_question = models.IntegerField(choices=[(1, 'Male'), (2, 'Female'), (3, 'Divers'), (4, 'Prefer not to say')], 
+                                              initial=-999, label="What gender do you identify with?")
+    #gender_quota_full = models.BooleanField(initial=False) 
 
     study_field_question = models.StringField(label="Please enter your field of study here:")
 

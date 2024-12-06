@@ -11,6 +11,11 @@ class Welcome(Page):
    
 
 class DemoPage0(Page):
+    def vars_for_template(self):
+    # Pass the genders dictionary to the template
+        return {
+            'available_genders': self.session.config['available_genders']
+        }
     form_model = Player
     form_fields = ['age_question', 'name_question', "gender_question"]
 
@@ -30,7 +35,8 @@ class DemoPage1(Page):
     def vars_for_template(self):
         return {'participant_label': safe_json(self.participant.label),
                 'screenout': safe_json(self.player.screenout),
-                'quota': safe_json(self.player.quota)
+                'quota': safe_json(self.player.quota),
+                'info_quota': safe_json(self.session.vars) #display for debugging
                 }
 
 class DemoPage2(Page):
