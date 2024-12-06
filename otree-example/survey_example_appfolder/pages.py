@@ -78,16 +78,14 @@ class RedirectPage(Page):
 page_sequence = [Welcome, 
                 DemoPage0, 
                 DemoPage1, 
-                DemoPage2,   
+                DemoPage2,  
+                DemoPage3, 
                 EndPage,
                 RedirectPage]
 
 
 #other pages (commented out  for testing )
-#               
-#                
- #               DemoPage2,
-  #              DemoPage3,
+  #              
    #             DemoPage4_group1,
     #            DemoPage4_group2, 
      #           PopupQuestion, 

@@ -72,6 +72,14 @@ def demopage_2(driver):
 
     print(" demopage_2 passed")
 
+#handle demopage_3
+def demopage_3(driver):
+    xPath_additional ='/html/body/div/form/div/div/div/input'
+    input_options = ["no", "no comment", "Hello", 123]
+    input =  random.choice(input_options)
+    driver.find_element(By.XPATH, xPath_additional).send_keys(input if isinstance(input, str) else str(input))
+    print(f" demopage_3 passed. Input: {input}")
+
 #handle end page 
 def end_page(driver):
     #click submit answers 
@@ -93,6 +101,7 @@ def run_bots(runs,link):
         demopage_0(driver,i)
         demopage_1(driver)
         demopage_2(driver)
+        demopage_3(driver)
         end_page(driver)
         
 
@@ -105,7 +114,7 @@ def run_bots(runs,link):
 
 
 #link to the current session being tested 
-link = 'http://localhost:8000/join/sejoriro'
+link = 'http://localhost:8000/join/demiholo'
 
 #run the bots
 run_bots(runs=20, link=link)
