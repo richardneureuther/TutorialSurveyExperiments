@@ -20,10 +20,10 @@ def detect_session_full(driver):
     except NoSuchElementException:
         return True
     
-#detect if the bot is currently on a screenout page 
+#detect if the bot is currently on a screenout page due to age or gender 
 def detect_screenout(driver):
     try:
-        #Try to locate an element that exists on DemoPage_1 return false if found True  if not found 
+        #Try to locate an element that exists on DemoPage_1 return false if found True if not found 
         driver.find_element(By.XPATH, '//*[@id="id_study_field_question"]')
         return False  
     except NoSuchElementException:
@@ -199,7 +199,7 @@ def run_bots(runs,link):
         "- Ran bot multiple times, worked each time\n")
 
 #link to the current session being tested 
-link = 'http://localhost:8000/join/darijapu'
+link = 'http://localhost:8000/join/zutudoso'
 
 #run the bots (test with more than 20 iterations to see if the screen out detectors work correctly )
 run_bots(runs=21, link=link)
