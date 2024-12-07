@@ -166,14 +166,14 @@ def run_bots(runs,link):
         try:
             #if the session is full abort the loop
             if detect_session_full(driver):
-                print(f"Bot_{i} encountered session full screen. Stopping...")
+                print(f"Bot_{i} encountered the session full screen. Stopping...")
                 break  
 
             #fill out the first 2 pages 
             welcome_page(driver)
             demopage_0(driver, i)
             
-            #check wether the bot is currently encountering a screenoutdue to quotas (age/gender), and if so skip to the next bot 
+            #check wether the bot is currently encountering a screenout due to quotas (age/gender), and if so skip to the next bot 
             if detect_screenout(driver):
                 print(f"Bot_{i} redirected to screenout or quota page. Skipping...")
                 continue
@@ -196,7 +196,7 @@ def run_bots(runs,link):
     print( "\nChecklist Assignment 4:\n"
         "- Automate each survey step\n"
         "- Randomly select answers/inputs + handle errors\n"
-        "- Ran bot multiple times, worked each time")
+        "- Ran bot multiple times, worked each time\n")
 
 #link to the current session being tested 
 link = 'http://localhost:8000/join/darijapu'
