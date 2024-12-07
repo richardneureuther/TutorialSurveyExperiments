@@ -14,14 +14,10 @@
     <br>
     <br>
     <p><b>Which gender do you identify with?</b></p>
-    <input type="radio" name="gender_question" value="1" /> Male
+    {% for gender_value, gender_label in available_genders.items() %}
+    <input type="radio" name="gender_question" value="{{ gender_value }}" /> {{ gender_label }}
     <br>
-    <input type="radio" name="gender_question" value="2" /> Female
-    <br>
-    <input type="radio" name="gender_question" value="3" /> Divers
-    <br>
-    <input type="radio" name="gender_question" value="4" /> Prefer not to say
-    <br>
+    {% endfor %}
     <br>
      <!-- Field for the name -->
      {{ formfield "name_question" }}
