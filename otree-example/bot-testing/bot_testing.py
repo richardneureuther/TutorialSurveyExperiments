@@ -12,7 +12,7 @@ def build_driver():
     # Set up the driver
     return webdriver.Chrome() 
 
-#detect if the all sessions are full 
+#detect the all sessions are full screen is encountered 
 def detect_session_full(driver):
     try:
         driver.find_element(By.XPATH,  '//*[@id="form"]/div/button')
@@ -39,16 +39,15 @@ def welcome_page(driver):
 
 #handle demopage0 
 def demopage_0(driver,run_number):
-#fill out age question (random 1 to 40)
+#fill out age question (random 1 to 65)
     xpath_age  = '//*[@id="id_age_question"]'
     age = random.randint(1,65)
     driver.find_element(By.XPATH, xpath_age).send_keys(str(age))
      
-     #randomly select a gender 
+    #randomly select a gender 
     gender = driver.find_elements(By.NAME, 'gender_question')
     rand_selection = random.randint(0, len(gender) - 1)
     gender[rand_selection].click()
-    # next
     
     #write a name 
     xpath_name = '//*[@id="id_name_question"]'
@@ -63,6 +62,7 @@ def demopage_0(driver,run_number):
 
 #handle demopage_1
 def demopage_1(driver):
+    #access html element (used the complete path, for some reason the shortened XPath cannot be accessed...)
     xPath_study ='/html/body/div/form/div/div/div/input'
     input_options = ["SEDS", "PolVer", "WiWi", "Jura", "Soziologie", 123]
     #choose input value
