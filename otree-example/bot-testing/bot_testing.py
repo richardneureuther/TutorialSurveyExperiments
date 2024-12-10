@@ -192,7 +192,6 @@ def run_bots(runs,link):
             print(f"Bot_{i} encountered an error: {e}")
 
     #after completion print Assignment 5 checklist in the console 
-   
     print( "\nChecklist Assignment 4:\n"
         "- Automate each survey step\n"
         "- Randomly select answers/inputs + handle errors\n"
