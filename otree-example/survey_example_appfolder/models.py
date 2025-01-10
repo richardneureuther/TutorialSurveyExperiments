@@ -36,6 +36,7 @@ class Subsession(BaseSubsession):
         for p in self.get_players():
             p.group_assignment = random.Random().randint(0, 1)
             
+            
 class Group(BaseGroup):
    counter = models.IntegerField(initial = 0)
 
