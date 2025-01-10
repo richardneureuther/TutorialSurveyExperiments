@@ -93,8 +93,3 @@ page_sequence = [Welcome,
                 RedirectPage]
 
 
-#other pages (commented out  for testing )
-  #               DemoPage4_group1,
-               # DemoPage4_group2,
-   
-     #          , 
